@@ -1,22 +1,28 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:dsp/pages/section1.dart';
-import 'package:dsp/pages/section2.dart';
-import 'package:dsp/pages/section3.dart';
-import 'package:dsp/pages/section4.dart';
-import 'package:dsp/pages/section5.dart';
-import 'package:dsp/pages/section6.dart';
+import 'package:dsp/presentation/pages/section1.dart';
+import 'package:dsp/presentation/pages/section10.dart';
+import 'package:dsp/presentation/pages/section11.dart';
+import 'package:dsp/presentation/pages/section12.dart';
+import 'package:dsp/presentation/pages/section2.dart';
+import 'package:dsp/presentation/pages/section3.dart';
+import 'package:dsp/presentation/pages/section4.dart';
+import 'package:dsp/presentation/pages/section5.dart';
+import 'package:dsp/presentation/pages/section6.dart';
+import 'package:dsp/presentation/pages/section7.dart';
+import 'package:dsp/presentation/pages/section8.dart';
+import 'package:dsp/presentation/pages/section9.dart';
 import 'package:flutter/material.dart';
 
-class Section3 extends StatelessWidget {
-  const Section3({super.key});
+class Section5 extends StatelessWidget {
+  const Section5({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Color(0xFF4B39EF),
-          title: Text('Spouse Information')),
+          title: Text('Parent\'s Information')),
       endDrawer: Drawer(
         elevation: 16,
         child: Container(
@@ -323,15 +329,11 @@ class Section3 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section7()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -368,15 +370,11 @@ class Section3 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section8()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -413,15 +411,11 @@ class Section3 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section9()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -458,15 +452,11 @@ class Section3 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section10()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -503,15 +493,11 @@ class Section3 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section11()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -550,15 +536,11 @@ class Section3 extends StatelessWidget {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-    ///TODO
-    /*
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const Section12()),
                         );
-
-     */
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -585,27 +567,22 @@ class Section3 extends StatelessWidget {
           ),
         ),
       ),
-      body: const Section3Form(),
+      body: const Section5Form(),
     );
   }
 }
 
 // Define a custom Form widget.
-class Section3Form extends StatefulWidget {
-  const Section3Form({super.key});
+class Section5Form extends StatefulWidget {
+  const Section5Form({super.key});
 
   @override
-  Section3FormState createState() {
-    return Section3FormState();
+  Section5FormState createState() {
+    return Section5FormState();
   }
 }
 
-class Section3FormState extends State<Section3Form> {
-  //===================== Drop down menu items =========================//
-  static const List<String> genderList = <String>['Male', 'Female'];
-  String genderDropdownValue = genderList.first;
-  //===================== Drop down menu items =========================//
-
+class Section5FormState extends State<Section5Form> {
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
   //
@@ -627,202 +604,7 @@ class Section3FormState extends State<Section3Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Name :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter your name'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Age :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter your age'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Gender : ',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
-                child: DropdownMenu<String>(
-                  width: 300,
-                  initialSelection: genderList.first,
-                  onSelected: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      genderDropdownValue = value!;
-                    });
-                  },
-                  dropdownMenuEntries:
-                      genderList.map<DropdownMenuEntry<String>>((String value) {
-                    return DropdownMenuEntry<String>(
-                        value: value, label: value);
-                  }).toList(),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Citizenship :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter citizenship'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'D.O.B (dd/mm/yyyy) - optional :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'dd/mm/yyyy'),
-                    // validator: (value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'Please enter some text';
-                    //   }
-                    //   return null;
-                    // },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Religion - optional :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter religion'),
-                    // validator: (value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'Please enter some text';
-                    //   }
-                    //   return null;
-                    // },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Permanent Residency - optional :',
+                    'Father\'s Age :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -839,7 +621,7 @@ class Section3FormState extends State<Section3Form> {
                   width: 300,
                   child: TextFormField(
                     decoration:
-                        InputDecoration(labelText: 'Enter Permanent Residency'),
+                        InputDecoration(labelText: 'Enter your father age'),
                     // validator: (value) {
                     //   if (value == null || value.isEmpty) {
                     //     return 'Please enter some text';
@@ -855,39 +637,7 @@ class Section3FormState extends State<Section3Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Occupation - optional :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter Occupation'),
-                    // validator: (value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'Please enter some text';
-                    //   }
-                    //   return null;
-                    // },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Tax Residency - optional :',
+                    'Mother\'s Age :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -904,7 +654,7 @@ class Section3FormState extends State<Section3Form> {
                   width: 300,
                   child: TextFormField(
                     decoration:
-                        InputDecoration(labelText: 'Enter Tax Residency'),
+                        InputDecoration(labelText: 'Enter your mother age'),
                     // validator: (value) {
                     //   if (value == null || value.isEmpty) {
                     //     return 'Please enter some text';
@@ -943,7 +693,7 @@ class Section3FormState extends State<Section3Form> {
                       await Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Section4()),
+                            builder: (context) => const Section6()),
                       );
                     }
                   },

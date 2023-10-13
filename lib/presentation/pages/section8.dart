@@ -1,19 +1,28 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously, prefer_interpolation_to_compose_strings
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:dsp/pages/section2.dart';
-import 'package:dsp/pages/section3.dart';
-import 'package:dsp/pages/section4.dart';
-import 'package:dsp/pages/section5.dart';
-import 'package:dsp/pages/section6.dart';
+import 'package:dsp/presentation/pages/section1.dart';
+import 'package:dsp/presentation/pages/section10.dart';
+import 'package:dsp/presentation/pages/section11.dart';
+import 'package:dsp/presentation/pages/section12.dart';
+import 'package:dsp/presentation/pages/section2.dart';
+import 'package:dsp/presentation/pages/section3.dart';
+import 'package:dsp/presentation/pages/section4.dart';
+import 'package:dsp/presentation/pages/section5.dart';
+import 'package:dsp/presentation/pages/section6.dart';
+import 'package:dsp/presentation/pages/section7.dart';
+import 'package:dsp/presentation/pages/section8.dart';
+import 'package:dsp/presentation/pages/section9.dart';
 import 'package:flutter/material.dart';
 
-
-class Section1 extends StatelessWidget {
-  const Section1({super.key});
+class Section8 extends StatelessWidget {
+  const Section8({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          backgroundColor: Color(0xFF4B39EF),
+          title: Text('Net Worth Information\n(Family Wealth)')),
       endDrawer: Drawer(
         elevation: 16,
         child: Container(
@@ -320,15 +329,11 @@ class Section1 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            ///
-                            /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section7()),
                             );
-
-                             */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -365,15 +370,11 @@ class Section1 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section8()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -410,15 +411,11 @@ class Section1 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section9()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -455,15 +452,11 @@ class Section1 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section10()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -500,15 +493,11 @@ class Section1 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section11()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -547,15 +536,11 @@ class Section1 extends StatelessWidget {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-    ///TODO
-    /*
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const Section12()),
                         );
-
-     */
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -582,55 +567,35 @@ class Section1 extends StatelessWidget {
           ),
         ),
       ),
-      appBar: AppBar(
-          backgroundColor: Color(0xFF4B39EF),
-          title: Text('Adviser Information')),
-      body: const Section1Form(),
+      body: const Section8Form(),
     );
   }
 }
 
 // Define a custom Form widget.
-class Section1Form extends StatefulWidget {
-  const Section1Form({super.key});
+class Section8Form extends StatefulWidget {
+  const Section8Form({super.key});
 
   @override
-  Section1FormState createState() {
-    return Section1FormState();
+  Section8FormState createState() {
+    return Section8FormState();
   }
 }
 
-class Section1FormState extends State<Section1Form> {
-  TextEditingController dateTimeController = TextEditingController();
-
-  TimeOfDay timeOfDay = TimeOfDay.now();
-
-  Future<void> selectDateTime() async {
-    DateTime? pickedDate = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2000),
-        lastDate: DateTime(2100));
-
-    TimeOfDay? pickedTime;
-    if (pickedDate != null) {
-      pickedTime = await showTimePicker(
-        context: context,
-        initialTime: timeOfDay,
-      );
-    }
-
-    if (pickedDate != null && pickedTime != null) {
-      setState(() {
-        timeOfDay = pickedTime!;
-        dateTimeController.text = pickedDate.toString().split(" ")[0] +
-            ' ' +
-            timeOfDay.hour.toString().padLeft(2, '0') +
-            ':' +
-            timeOfDay.minute.toString().padLeft(2, '0');
-      });
-    }
-  }
+class Section8FormState extends State<Section8Form> {
+  //===================== Drop down menu items =========================//
+  static const List<String> universalLifeInsuranceList = <String>['Yes', 'No'];
+  String universalLifeInsuranceDropdownValue = universalLifeInsuranceList.first;
+  static const List<String> interestToUnderstandList = <String>['Yes', 'No'];
+  String interestToUnderstandDropdownValue = interestToUnderstandList.first;
+  static const List<String> privateBusinessList = <String>['Yes', 'No'];
+  String privateBusinessDropdownValue = privateBusinessList.first;
+  static const List<String> planningForSaleOrMergerList = <String>['Yes', 'No'];
+  String planningForSaleOrMergerDropdownValue =
+      planningForSaleOrMergerList.first;
+  static const List<String> anyNomineesOrProxiesList = <String>['Yes', 'No'];
+  String anyNomineesOrProxiesDropdownValue = anyNomineesOrProxiesList.first;
+  //===================== Drop down menu items =========================//
 
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
@@ -653,7 +618,106 @@ class Section1FormState extends State<Section1Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Adviser name (1st) :',
+                    'Bank accounts (SA, CA & FD) :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Location (no.)'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Real Properties :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Location (no.)'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Universal Life Insurance :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
+                child: DropdownMenu<String>(
+                  width: 300,
+                  initialSelection: universalLifeInsuranceList.first,
+                  onSelected: (String? value) {
+                    // This is called when the user selects an item.
+                    setState(() {
+                      universalLifeInsuranceDropdownValue = value!;
+                    });
+                  },
+                  dropdownMenuEntries: universalLifeInsuranceList
+                      .map<DropdownMenuEntry<String>>((String value) {
+                    return DropdownMenuEntry<String>(
+                        value: value, label: value);
+                  }).toList(),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Other matters :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -670,13 +734,13 @@ class Section1FormState extends State<Section1Form> {
                   width: 300,
                   child: TextFormField(
                     decoration:
-                        InputDecoration(labelText: 'Enter adviser name'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
+                        InputDecoration(labelText: 'Enter other matters'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
                   ),
                 ),
               ),
@@ -686,7 +750,7 @@ class Section1FormState extends State<Section1Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Adviser name (2nd) :',
+                    'Investment accounts :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -702,14 +766,13 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
-                    decoration:
-                        InputDecoration(labelText: 'Enter adviser name'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
+                    decoration: InputDecoration(labelText: 'Location (no.)'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
                   ),
                 ),
               ),
@@ -719,7 +782,7 @@ class Section1FormState extends State<Section1Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Meeting date & time :',
+                    'Loan :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -735,20 +798,13 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
-                    controller: dateTimeController,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.calendar_today),
-                      labelText: 'Select Date',
-                    ),
-                    onTap: () async {
-                      selectDateTime();
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please select date';
-                      }
-                      return null;
-                    },
+                    decoration: InputDecoration(labelText: 'Enter Loan'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
                   ),
                 ),
               ),
@@ -758,7 +814,67 @@ class Section1FormState extends State<Section1Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Client Attendees :',
+                    'If no, any interest to understand?',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
+                child: DropdownMenu<String>(
+                  width: 300,
+                  initialSelection: interestToUnderstandList.first,
+                  onSelected: (String? value) {
+                    // This is called when the user selects an item.
+                    setState(() {
+                      interestToUnderstandDropdownValue = value!;
+                    });
+                  },
+                  dropdownMenuEntries: interestToUnderstandList
+                      .map<DropdownMenuEntry<String>>((String value) {
+                    return DropdownMenuEntry<String>(
+                        value: value, label: value);
+                  }).toList(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
+              child: SizedBox(
+                width: 360,
+                child: Divider(
+                  thickness: 1,
+                  color: Color.fromRGBO(20, 24, 27, 1),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Wealth Jurisdiction and Proportion (%) \nNote: all percentages should add up \nto 100%',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Onshore :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -774,14 +890,13 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
-                    decoration:
-                        InputDecoration(labelText: 'Enter Client Attendees'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
+                    decoration: InputDecoration(labelText: 'Enter Onshore'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
                   ),
                 ),
               ),
@@ -791,7 +906,7 @@ class Section1FormState extends State<Section1Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Client Contact No. :',
+                    'Offshore :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -807,14 +922,13 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
-                    decoration:
-                        InputDecoration(labelText: 'Enter Client Contact No'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
+                    decoration: InputDecoration(labelText: 'Enter Offshore'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
                   ),
                 ),
               ),
@@ -824,7 +938,7 @@ class Section1FormState extends State<Section1Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Location :',
+                    'Malaysia :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -840,13 +954,173 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter Location'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
+                    decoration: InputDecoration(labelText: 'Enter Malaysia'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Singapore :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Enter Singapore'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Australia :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Enter Australia'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Indonesia :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Enter Indonesia'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'UK :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Enter UK'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Others :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Enter Others'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
                   ),
                 ),
               ),
@@ -879,7 +1153,7 @@ class Section1FormState extends State<Section1Form> {
                       await Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Section2()),
+                            builder: (context) => const Section9()),
                       );
                     }
                   },

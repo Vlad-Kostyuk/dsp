@@ -1,23 +1,29 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:counter_button/counter_button.dart';
-import 'package:dsp/pages/section1.dart';
-import 'package:dsp/pages/section2.dart';
-import 'package:dsp/pages/section3.dart';
-import 'package:dsp/pages/section4.dart';
-import 'package:dsp/pages/section5.dart';
-import 'package:dsp/pages/section6.dart';
+import 'package:dsp/presentation/pages/section1.dart';
+import 'package:dsp/presentation/pages/section10.dart';
+import 'package:dsp/presentation/pages/section11.dart';
+import 'package:dsp/presentation/pages/section12.dart';
+import 'package:dsp/presentation/pages/section2.dart';
+import 'package:dsp/presentation/pages/section3.dart';
+import 'package:dsp/presentation/pages/section4.dart';
+import 'package:dsp/presentation/pages/section5.dart';
+import 'package:dsp/presentation/pages/section6.dart';
+import 'package:dsp/presentation/pages/section7.dart';
+import 'package:dsp/presentation/pages/section8.dart';
+import 'package:dsp/presentation/pages/section9.dart';
 import 'package:flutter/material.dart';
 
-class Section4 extends StatelessWidget {
-  const Section4({super.key});
+class Section7 extends StatelessWidget {
+  const Section7({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xFF4B39EF),
-          title: Text('Children Information')),
+        backgroundColor: Color(0xFF4B39EF),
+        title: Text('Net Worth Information\n(Family Businesses)'),
+      ),
       endDrawer: Drawer(
         elevation: 16,
         child: Container(
@@ -324,15 +330,11 @@ class Section4 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section7()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -369,15 +371,11 @@ class Section4 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section8()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -414,15 +412,11 @@ class Section4 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section9()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -459,15 +453,11 @@ class Section4 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section10()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -504,15 +494,11 @@ class Section4 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section11()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -551,15 +537,11 @@ class Section4 extends StatelessWidget {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-    ///TODO
-    /*
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const Section12()),
                         );
-
-     */
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -586,51 +568,43 @@ class Section4 extends StatelessWidget {
           ),
         ),
       ),
-      body: const Section4Form(),
+      body: const Section7Form(),
     );
   }
 }
 
+//===================== Radio Button =========================//
+enum yesNoCharacter { yes, no }
+//===================== Radio Button =========================//
+
 // Define a custom Form widget.
-class Section4Form extends StatefulWidget {
-  const Section4Form({super.key});
+class Section7Form extends StatefulWidget {
+  const Section7Form({super.key});
 
   @override
-  Section4FormState createState() {
-    return Section4FormState();
+  Section7FormState createState() {
+    return Section7FormState();
   }
 }
 
-class Section4FormState extends State<Section4Form> {
-  //No of children count button
-  int counterValue = 0;
+class Section7FormState extends State<Section7Form> {
+  //===================== Drop down menu items =========================//
+  static const List<String> listedCompanyList = <String>['Yes', 'No'];
+  String listedCompanyDropdownValue = listedCompanyList.first;
+  static const List<String> planningForIPOList = <String>['Yes', 'No'];
+  String planningForIPODropdownValue = planningForIPOList.first;
+  static const List<String> privateBusinessList = <String>['Yes', 'No'];
+  String privateBusinessDropdownValue = privateBusinessList.first;
+  static const List<String> planningForSaleOrMergerList = <String>['Yes', 'No'];
+  String planningForSaleOrMergerDropdownValue =
+      planningForSaleOrMergerList.first;
+  static const List<String> anyNomineesOrProxiesList = <String>['Yes', 'No'];
+  String anyNomineesOrProxiesDropdownValue = anyNomineesOrProxiesList.first;
+  //===================== Drop down menu items =========================//
 
-  //===================== Drop down menu items =========================//
-  static const List<String> genderList = <String>['Male', 'Female'];
-  String genderDropdownValue = genderList.first;
-  static const List<String> statusList = <String>[
-    'Biological',
-    'Adopted',
-    'Step',
-    'Others'
-  ];
-  String statusDropdownValue = statusList.first;
-  static const List<String> familyBusinessList = <String>[
-    'Yes',
-    'No',
-    'Used to',
-    'Retired'
-  ];
-  String familyBusinessDropdownValue = familyBusinessList.first;
-  static const List<String> maritalStatusList = <String>[
-    'Single',
-    'Married',
-    'Defacto Relationship',
-    'Widowed',
-    'Polygamous'
-  ];
-  String maritalStatusDropdownValue = maritalStatusList.first;
-  //===================== Drop down menu items =========================//
+  //===================== Radio Button =========================//
+  yesNoCharacter? _character = yesNoCharacter.yes;
+  //===================== Radio Button =========================//
 
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
@@ -653,307 +627,7 @@ class Section4FormState extends State<Section4Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'No of children :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
-                  child: CounterButton(
-                    loading: false,
-                    onChange: (int val) {
-                      setState(() {
-                        counterValue = val;
-                      });
-                    },
-                    count: counterValue,
-                    countColor: Colors.purple,
-                    buttonColor: Colors.purpleAccent,
-                    progressColor: Colors.purpleAccent,
-                  )),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Name :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter your name'),
-                    // validator: (value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'Please enter some text';
-                    //   }
-                    //   return null;
-                    // },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Age :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter your age'),
-                    // validator: (value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'Please enter some text';
-                    //   }
-                    //   return null;
-                    // },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Gender :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
-                child: DropdownMenu<String>(
-                  width: 300,
-                  initialSelection: genderList.first,
-                  onSelected: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      genderDropdownValue = value!;
-                    });
-                  },
-                  dropdownMenuEntries:
-                      genderList.map<DropdownMenuEntry<String>>((String value) {
-                    return DropdownMenuEntry<String>(
-                        value: value, label: value);
-                  }).toList(),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Status :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
-                child: DropdownMenu<String>(
-                  width: 300,
-                  initialSelection: statusList.first,
-                  onSelected: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      statusDropdownValue = value!;
-                    });
-                  },
-                  dropdownMenuEntries:
-                      statusList.map<DropdownMenuEntry<String>>((String value) {
-                    return DropdownMenuEntry<String>(
-                        value: value, label: value);
-                  }).toList(),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Working in Family Business ?',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
-                child: DropdownMenu<String>(
-                  width: 300,
-                  initialSelection: familyBusinessList.first,
-                  onSelected: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      familyBusinessDropdownValue = value!;
-                    });
-                  },
-                  dropdownMenuEntries: familyBusinessList
-                      .map<DropdownMenuEntry<String>>((String value) {
-                    return DropdownMenuEntry<String>(
-                        value: value, label: value);
-                  }).toList(),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Occupation :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter Occupation'),
-                    // validator: (value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'Please enter some text';
-                    //   }
-                    //   return null;
-                    // },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Marital Status :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
-                child: DropdownMenu<String>(
-                  width: 300,
-                  initialSelection: maritalStatusList.first,
-                  onSelected: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      maritalStatusDropdownValue = value!;
-                    });
-                  },
-                  dropdownMenuEntries: maritalStatusList
-                      .map<DropdownMenuEntry<String>>((String value) {
-                    return DropdownMenuEntry<String>(
-                        value: value, label: value);
-                  }).toList(),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'No. of Grandchildren :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(
-                        labelText: 'Enter number of Grandchildren'),
-                    // validator: (value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'Please enter some text';
-                    //   }
-                    //   return null;
-                    // },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Grandchildren Age :',
+                    'Number of companies :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -970,7 +644,7 @@ class Section4FormState extends State<Section4Form> {
                   width: 300,
                   child: TextFormField(
                     decoration:
-                        InputDecoration(labelText: 'Enter Grandchildren Age'),
+                        InputDecoration(labelText: 'Enter number of companies'),
                     // validator: (value) {
                     //   if (value == null || value.isEmpty) {
                     //     return 'Please enter some text';
@@ -986,7 +660,73 @@ class Section4FormState extends State<Section4Form> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Grandchildren Gender :',
+                    'Direct companies :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration:
+                        InputDecoration(labelText: 'Enter direct companies'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Indirect companies :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration:
+                        InputDecoration(labelText: 'Enter indirect companies'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Any nominees/proxies :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -1003,7 +743,689 @@ class Section4FormState extends State<Section4Form> {
                   width: 300,
                   child: TextFormField(
                     decoration: InputDecoration(
-                        labelText: 'Enter Grandchildren Gender'),
+                        labelText: 'Enter any nominees/proxies'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'No. of Bumi nominees :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Enter No. of Bumi nominees'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'No. of non-Bumi nominees :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Enter No. of non-Bumi nominees'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Averange value of business :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Enter averange value of business'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Director guarantee on company loan :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                    labelText:
+                                        'If yes. Please write some text'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
+              child: SizedBox(
+                width: 360,
+                child: Divider(
+                  thickness: 1,
+                  color: Color.fromRGBO(20, 24, 27, 1),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Family Businesses Entity 1',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Company name :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration:
+                        InputDecoration(labelText: 'Enter your company name'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Natural of business :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Enter your natural of business'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Country Jurisdiction :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Enter your Country Jurisdiction'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Company Shareholding :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Enter your Company Shareholding'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
+              child: SizedBox(
+                width: 360,
+                child: Divider(
+                  thickness: 1,
+                  color: Color.fromRGBO(20, 24, 27, 1),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Any nominees/proxies',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Listed Company :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
+                child: DropdownMenu<String>(
+                  width: 300,
+                  initialSelection: listedCompanyList.first,
+                  onSelected: (String? value) {
+                    // This is called when the user selects an item.
+                    setState(() {
+                      listedCompanyDropdownValue = value!;
+                    });
+                  },
+                  dropdownMenuEntries: listedCompanyList
+                      .map<DropdownMenuEntry<String>>((String value) {
+                    return DropdownMenuEntry<String>(
+                        value: value, label: value);
+                  }).toList(),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Planning for IPO :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
+                child: DropdownMenu<String>(
+                  width: 300,
+                  initialSelection: planningForIPOList.first,
+                  onSelected: (String? value) {
+                    // This is called when the user selects an item.
+                    setState(() {
+                      planningForIPODropdownValue = value!;
+                    });
+                  },
+                  dropdownMenuEntries: planningForIPOList
+                      .map<DropdownMenuEntry<String>>((String value) {
+                    return DropdownMenuEntry<String>(
+                        value: value, label: value);
+                  }).toList(),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Private Business :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
+                child: DropdownMenu<String>(
+                  width: 300,
+                  initialSelection: privateBusinessList.first,
+                  onSelected: (String? value) {
+                    // This is called when the user selects an item.
+                    setState(() {
+                      privateBusinessDropdownValue = value!;
+                    });
+                  },
+                  dropdownMenuEntries: privateBusinessList
+                      .map<DropdownMenuEntry<String>>((String value) {
+                    return DropdownMenuEntry<String>(
+                        value: value, label: value);
+                  }).toList(),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Planning for Sale or Merger & Acquisition :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
+                child: DropdownMenu<String>(
+                  width: 300,
+                  initialSelection: planningForSaleOrMergerList.first,
+                  onSelected: (String? value) {
+                    // This is called when the user selects an item.
+                    setState(() {
+                      planningForSaleOrMergerDropdownValue = value!;
+                    });
+                  },
+                  dropdownMenuEntries: planningForSaleOrMergerList
+                      .map<DropdownMenuEntry<String>>((String value) {
+                    return DropdownMenuEntry<String>(
+                        value: value, label: value);
+                  }).toList(),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Est. no. of employees :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        labelText: 'Enter Est. no. of employees'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Directorship :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration:
+                        InputDecoration(labelText: 'Enter Directorship'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Any nominees/proxies :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
+                child: DropdownMenu<String>(
+                  width: 300,
+                  initialSelection: anyNomineesOrProxiesList.first,
+                  onSelected: (String? value) {
+                    // This is called when the user selects an item.
+                    setState(() {
+                      anyNomineesOrProxiesDropdownValue = value!;
+                    });
+                  },
+                  dropdownMenuEntries: anyNomineesOrProxiesList
+                      .map<DropdownMenuEntry<String>>((String value) {
+                    return DropdownMenuEntry<String>(
+                        value: value, label: value);
+                  }).toList(),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'CEO :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Enter CEO'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Estimate Corporate/personal Guarantee :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Enter some text'),
+                    // validator: (value) {
+                    //   if (value == null || value.isEmpty) {
+                    //     return 'Please enter some text';
+                    //   }
+                    //   return null;
+                    // },
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'When was the last dividend paid?',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
+                child: SizedBox(
+                  width: 300,
+                  child: TextFormField(
+                    decoration: InputDecoration(labelText: 'Enter some text'),
                     // validator: (value) {
                     //   if (value == null || value.isEmpty) {
                     //     return 'Please enter some text';
@@ -1042,7 +1464,7 @@ class Section4FormState extends State<Section4Form> {
                       await Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Section5()),
+                            builder: (context) => const Section8()),
                       );
                     }
                   },

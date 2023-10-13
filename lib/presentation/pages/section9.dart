@@ -1,22 +1,29 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:dsp/pages/section1.dart';
-import 'package:dsp/pages/section2.dart';
-import 'package:dsp/pages/section3.dart';
-import 'package:dsp/pages/section4.dart';
-import 'package:dsp/pages/section5.dart';
-import 'package:dsp/pages/section6.dart';
+import 'package:dsp/presentation/pages/section12.dart';
+import 'package:flutter/material.dart';
+import 'package:dsp/presentation/pages/section1.dart';
+import 'package:dsp/presentation/pages/section10.dart';
+import 'package:dsp/presentation/pages/section11.dart';
+import 'package:dsp/presentation/pages/section2.dart';
+import 'package:dsp/presentation/pages/section3.dart';
+import 'package:dsp/presentation/pages/section4.dart';
+import 'package:dsp/presentation/pages/section5.dart';
+import 'package:dsp/presentation/pages/section6.dart';
+import 'package:dsp/presentation/pages/section7.dart';
+import 'package:dsp/presentation/pages/section8.dart';
+import 'package:dsp/presentation/pages/section9.dart';
 import 'package:flutter/material.dart';
 
-class Section2 extends StatelessWidget {
-  const Section2({super.key});
+class Section9 extends StatelessWidget {
+  const Section9({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Color(0xFF4B39EF),
-          title: Text('Personal Information')),
+          title: Text('Estate Planning Information')),
       endDrawer: Drawer(
         elevation: 16,
         child: Container(
@@ -323,15 +330,11 @@ class Section2 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section7()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -368,15 +371,11 @@ class Section2 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section8()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -413,15 +412,11 @@ class Section2 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section9()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -458,15 +453,11 @@ class Section2 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section10()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -503,15 +494,11 @@ class Section2 extends StatelessWidget {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-    ///TODO
-    /*
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Section11()),
                             );
-
-     */
                           },
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -550,15 +537,11 @@ class Section2 extends StatelessWidget {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-    ///TODO
-    /*
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const Section12()),
                         );
-
-     */
                       },
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -585,34 +568,29 @@ class Section2 extends StatelessWidget {
           ),
         ),
       ),
-      body: const Section2Form(),
+      body: const Section9Form(),
     );
   }
 }
 
+//===================== Radio Button =========================//
+enum yesNoCharacter { yes, no }
+//===================== Radio Button =========================//
+
 // Define a custom Form widget.
-class Section2Form extends StatefulWidget {
-  const Section2Form({super.key});
+class Section9Form extends StatefulWidget {
+  const Section9Form({super.key});
 
   @override
-  Section2FormState createState() {
-    return Section2FormState();
+  Section9FormState createState() {
+    return Section9FormState();
   }
 }
 
-class Section2FormState extends State<Section2Form> {
-  //===================== Drop down menu items =========================//
-  static const List<String> genderList = <String>['Male', 'Female'];
-  String genderDropdownValue = genderList.first;
-  static const List<String> maritalStatusList = <String>[
-    'Single',
-    'Married',
-    'Defacto Relationship',
-    'Widowed',
-    'Polygamous'
-  ];
-  String maritalStatusDropdownValue = maritalStatusList.first;
-  //===================== Drop down menu items =========================//
+class Section9FormState extends State<Section9Form> {
+  //===================== Radio Button =========================//
+  yesNoCharacter? _character = yesNoCharacter.yes;
+  //===================== Radio Button =========================//
 
   // Create a global key that uniquely identifies the Form widget
   // and allows validation of the form.
@@ -633,9 +611,135 @@ class Section2FormState extends State<Section2Form> {
             Row(
               children: [
                 Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Will/Wasiat :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Insurance nomination :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Name :',
+                    'Trust Documents \n(i.e. Trust deed, Power of attorney, etc) :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -651,138 +755,7 @@ class Section2FormState extends State<Section2Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter your name'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Age :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter your age'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Gender : ',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
-                child: DropdownMenu<String>(
-                  width: 300,
-                  initialSelection: genderList.first,
-                  onSelected: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      genderDropdownValue = value!;
-                    });
-                  },
-                  dropdownMenuEntries:
-                      genderList.map<DropdownMenuEntry<String>>((String value) {
-                    return DropdownMenuEntry<String>(
-                        value: value, label: value);
-                  }).toList(),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Citizenship :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter citizenship'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'D.O.B (dd/mm/yyyy) - optional :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration: InputDecoration(labelText: 'dd/mm/yyyy'),
+                    decoration: InputDecoration(labelText: 'Enter some text'),
                     // validator: (value) {
                     //   if (value == null || value.isEmpty) {
                     //     return 'Please enter some text';
@@ -796,9 +769,261 @@ class Section2FormState extends State<Section2Form> {
             Row(
               children: [
                 Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Pension Fund Nomination (if any) :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Trustee to any PV?',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Memorial package :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Beneficiary to any PV?',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Religion - optional :',
+                    'Any Health Issue :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -814,7 +1039,7 @@ class Section2FormState extends State<Section2Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter religion'),
+                    decoration: InputDecoration(labelText: 'Enter some text'),
                     // validator: (value) {
                     //   if (value == null || value.isEmpty) {
                     //     return 'Please enter some text';
@@ -825,12 +1050,163 @@ class Section2FormState extends State<Section2Form> {
                 ),
               ),
             ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
+              child: SizedBox(
+                width: 360,
+                child: Divider(
+                  thickness: 1,
+                  color: Color.fromRGBO(20, 24, 27, 1),
+                ),
+              ),
+            ),
             Row(
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Permanent Residency - optional :',
+                    'Spouse',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Will/Wasiat :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Insurance nomination :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Text(
+                    'Trust Documents \n(i.e. Trust deed, Power of attorney, etc)',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -846,8 +1222,7 @@ class Section2FormState extends State<Section2Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
-                    decoration:
-                        InputDecoration(labelText: 'Enter Permanent Residency'),
+                    decoration: InputDecoration(labelText: 'Enter some text'),
                     // validator: (value) {
                     //   if (value == null || value.isEmpty) {
                     //     return 'Please enter some text';
@@ -861,9 +1236,261 @@ class Section2FormState extends State<Section2Form> {
             Row(
               children: [
                 Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Pension Fund Nomination (if any) :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Trustee to any PV?',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Memorial package :',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 10),
+                  child: Text(
+                    'Beneficiary to any PV?',
+                    style: TextStyle(
+                      fontFamily: 'ReadexPro',
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Align(
+              alignment: AlignmentDirectional(-1.00, 0.00),
+              child: Column(children: <Widget>[
+                ListTileTheme(
+                    horizontalTitleGap: 0,
+                    child: Column(
+                      children: [
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('Yes'),
+                          subtitle: Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 70, 0),
+                            child: SizedBox(
+                              child: TextFormField(
+                                decoration:
+                                    InputDecoration(labelText: 'If yes. When?'),
+                                // validator: (value) {
+                                //   if (value == null || value.isEmpty) {
+                                //     return 'Please enter some text';
+                                //   }
+                                //   return null;
+                                // },
+                              ),
+                            ),
+                          ),
+                          value: yesNoCharacter.yes,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                        RadioListTile<yesNoCharacter>(
+                          visualDensity: const VisualDensity(horizontal: -1.0),
+                          title: const Text('No'),
+                          value: yesNoCharacter.no,
+                          groupValue: _character,
+                          onChanged: (yesNoCharacter? value) {
+                            setState(() {
+                              _character = value;
+                            });
+                          },
+                        ),
+                      ],
+                    )),
+              ]),
+            ),
+            Row(
+              children: [
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Text(
-                    'Occupation - optional :',
+                    'Any Health Issue :',
                     style: TextStyle(
                       fontFamily: 'ReadexPro',
                       fontSize: 16,
@@ -879,7 +1506,7 @@ class Section2FormState extends State<Section2Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
-                    decoration: InputDecoration(labelText: 'Enter Occupation'),
+                    decoration: InputDecoration(labelText: 'Enter some text'),
                     // validator: (value) {
                     //   if (value == null || value.isEmpty) {
                     //     return 'Please enter some text';
@@ -887,74 +1514,6 @@ class Section2FormState extends State<Section2Form> {
                     //   return null;
                     // },
                   ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Tax Residency - optional :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 8, 20),
-                child: SizedBox(
-                  width: 300,
-                  child: TextFormField(
-                    decoration:
-                        InputDecoration(labelText: 'Enter Tax Residency'),
-                    // validator: (value) {
-                    //   if (value == null || value.isEmpty) {
-                    //     return 'Please enter some text';
-                    //   }
-                    //   return null;
-                    // },
-                  ),
-                ),
-              ),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                  child: Text(
-                    'Marital Status - optional :',
-                    style: TextStyle(
-                      fontFamily: 'ReadexPro',
-                      fontSize: 16,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Align(
-              alignment: AlignmentDirectional(-1.00, 0.00),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 15, 0, 20),
-                child: DropdownMenu<String>(
-                  width: 300,
-                  initialSelection: maritalStatusList.first,
-                  onSelected: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      maritalStatusDropdownValue = value!;
-                    });
-                  },
-                  dropdownMenuEntries: maritalStatusList
-                      .map<DropdownMenuEntry<String>>((String value) {
-                    return DropdownMenuEntry<String>(
-                        value: value, label: value);
-                  }).toList(),
                 ),
               ),
             ),
@@ -986,7 +1545,7 @@ class Section2FormState extends State<Section2Form> {
                       await Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Section3()),
+                            builder: (context) => const Section10()),
                       );
                     }
                   },
