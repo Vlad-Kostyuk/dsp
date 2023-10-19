@@ -76,4 +76,26 @@ class EstatePlanningInformation {
       'estatePlanningInformation_spouse_healthIssue': spouseHealthIssue,
     };
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'estatePlanningInformation_willOrWasiat',
+      'estatePlanningInformation_insuranceNomination',
+      'estatePlanningInformation_trustDocuments',
+      'estatePlanningInformation_pensionFundNomination',
+      'estatePlanningInformation_trustee_PV',
+      'estatePlanningInformation_memorialPackage',
+      'estatePlanningInformation_beneficiary_PV',
+      'estatePlanningInformation_healthIssue',
+      'estatePlanningInformation_spouse_WillOrWasiat',
+      'estatePlanningInformation_spouse_insuranceNomination',
+      'estatePlanningInformation_spouse_trustDocuments',
+      'estatePlanningInformation_spouse_pensionFundNomination',
+      'estatePlanningInformation_spouse_trusteePV',
+      'estatePlanningInformation_spouse_memorialPackage',
+      'estatePlanningInformation_spouse_beneficiaryPV',
+      'estatePlanningInformation_spouse_healthIssue',
+    ];
+  }
+
 }

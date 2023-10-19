@@ -188,4 +188,54 @@ class ProposedSolution {
       'proposedSolution_Others_remarks': othersRemarks,
     };
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'proposedSolution_name',
+      'proposedSolution_familyWealth_fee',
+      'proposedSolution_familyWealth_timeline',
+      'proposedSolution_familyWealth_remarks',
+      'proposedSolution_businessSuccessionPlanning_fee',
+      'proposedSolution_businessSuccessionPlanning_timeline'
+      'proposedSolution_businessSuccessionPlanning_remarks',
+      'proposedSolution_keyEmployeesSuccessionPlanning_fee',
+      'proposedSolution_keyEmployeesSuccessionPlanning_timeline',
+      'proposedSolution_keyEmployeesSuccessionPlanning_remarks',
+      'proposedSolution_talentMetricsProgram_fee',
+      'proposedSolution_talentMetricsProgram_timeline',
+      'proposedSolution_talentMetricsProgram_remarks',
+      'proposedSolution_bumiNomineeSuccessionPlanning_fee',
+      'proposedSolution_bumiNomineeSuccessionPlanning_timeline',
+      'proposedSolution_bumiNomineeSuccessionPlanning_remarks',
+      'proposedSolution_taxStructuringPlanning_fee',
+      'proposedSolution_taxStructuringPlanning_timeline',
+      'proposedSolution_taxStructuringPlanning_remarks',
+      'proposedSolution_lifeCoaching_fee',
+      'proposedSolution_lifeCoaching_timeline',
+      'proposedSolution_lifeCoaching_remarks',
+      'proposedSolution_shareholderSuccessionExitPlanning_fee',
+      'proposedSolution_shareholderSuccessionExitPlanning_timeline',
+      'proposedSolution_shareholderSuccessionExitPlanning_remarks',
+      'proposedSolution_universalLifeInsurance_fee',
+      'proposedSolution_universalLifeInsurance_timeline',
+      'proposedSolution_universalLifeInsurance_remarks',
+      'proposedSolution_outsourceCIO_fee',
+      'proposedSolution_outsourceCIO_timeline',
+      'proposedSolution_outsourceCIO_remarks',
+      'proposedSolution_realEstatePlanning_fee',
+      'proposedSolution_realEstatePlanning_timeline',
+      'proposedSolution_realEstatePlanning_remarks',
+      'proposedSolution_familyCouncilMeeting_fee',
+      'proposedSolution_familyCouncilMeeting_timeline',
+      'proposedSolution_familyCouncilMeeting_remarks',
+      'proposedSolution_familyOfficeAdministration_fee',
+      'proposedSolution_familyOfficeAdministration_timeline',
+      'proposedSolution_familyOfficeAdministration_remarks',
+      'proposedSolution_Others_others',
+      'proposedSolution_Others_fee',
+      'proposedSolution_Others_timeline',
+      'proposedSolution_Others_remarks',
+    ];
+  }
+
 }

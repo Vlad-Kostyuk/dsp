@@ -100,4 +100,32 @@ class NetWorthFamilyBusiness {
       'netWorth_FamilyBusiness_lastDividendPaid': lastDividendPaid,
     };
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'netWorth_FamilyBusiness_totalCompanies',
+      'netWorth_FamilyBusiness_direct_companies',
+      'netWorth_FamilyBusiness_indirect_companies',
+      'netWorth_FamilyBusiness_nomineesOrProxies',
+      'netWorth_FamilyBusiness_bumi_nominees',
+      'netWorth_FamilyBusiness_nonBumi_nominees',
+      'netWorth_FamilyBusiness_averange_value_business',
+      'netWorth_FamilyBusiness_directorGuarantee_companyLoan',
+      'netWorth_FamilyBusiness_companyName',
+      'netWorth_FamilyBusiness_naturalBusiness',
+      'netWorth_FamilyBusiness_countryJurisdiction',
+      'netWorth_FamilyBusiness_companyShareholding',
+      'netWorth_FamilyBusiness_listedCompany',
+      'netWorth_FamilyBusiness_planning_IPO',
+      'netWorth_FamilyBusiness_privateBusiness',
+      'netWorth_FamilyBusiness_saleOrMerger_Acquisition',
+      'netWorth_FamilyBusiness_total_EstEmployess',
+      'netWorth_FamilyBusiness_directorship',
+      'netWorth_FamilyBusiness_second_nomineesOrProxies',
+      'netWorth_FamilyBusiness_CEO',
+      'netWorth_FamilyBusiness_corporateOrPersonalGuarantee',
+      'netWorth_FamilyBusiness_lastDividendPaid',
+    ];
+  }
+
 }

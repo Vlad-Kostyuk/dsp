@@ -56,4 +56,21 @@ class Children {
       'children_grandchildren_gender': grandchildrenGender,
     };
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'children_totalChildren',
+      'children_name',
+      'children_age',
+      'children_gender',
+      'children_status',
+      'children_working_in_family_business',
+      'children_occupation',
+      'children_marital_status',
+      'children_totalGrandchildren',
+      'children_grandchildren_age',
+      'children_grandchildren_gender',
+    ];
+  }
+
 }

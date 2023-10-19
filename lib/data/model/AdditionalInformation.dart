@@ -108,4 +108,34 @@ class AdditionalInformation {
       'additionalInformation_Other_others': otherOthers,
     };
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'additionalInformation_harmonyAndUnity',
+      'additionalInformation_dissolutionMarriage',
+      'additionalInformation_squanderingHeirs',
+      'additionalInformation_moreThanFamily',
+      'additionalInformation_InLaw_issue',
+      'additionalInformation_familyGovernance',
+      'additionalInformation_others',
+      'additionalInformation_messyWealth'
+      'additionalInformation_taxLiability',
+      'additionalInformation_creditorsSuitProtection',
+      'additionalInformation_lawsuitOrBankruptcy',
+      'additionalInformation_nonMuslim_muslimBusiness_partners',
+      'additionalInformation_nonMuslim_muslimProxiesOrNominees',
+      'additionalInformation_sahreholders_agreement',
+      'additionalInformation_successor_passDownTheBaton',
+      'additionalInformation_interest_exit_cashingOut_retire',
+      'additionalInformation_eventOfDemise_businessesBadlyAffected',
+      'additionalInformation_generationalWealthStrategy',
+      'additionalInformation_familyBusiness_others',
+      'additionalInformation_Other_generations',
+      'additionalInformation_parentsOrSiblings',
+      'additionalInformation_familyBusinesses',
+      'additionalInformation_businessPartnerOrNominees',
+      'additionalInformation_Other_others',
+    ];
+  }
+
 }

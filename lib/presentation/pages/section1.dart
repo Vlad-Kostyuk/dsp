@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_build_context_synchronously, prefer_interpolation_to_compose_strings
 
+import 'package:dsp/domain/bloc/adviser_information_bloc/adviser_information_bloc.dart';
 import 'package:dsp/presentation/pages/section1.dart';
 import 'package:dsp/presentation/pages/section10.dart';
 import 'package:dsp/presentation/pages/section11.dart';
@@ -13,6 +14,7 @@ import 'package:dsp/presentation/pages/section7.dart';
 import 'package:dsp/presentation/pages/section8.dart';
 import 'package:dsp/presentation/pages/section9.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Section1 extends StatelessWidget {
   const Section1({super.key});
@@ -583,7 +585,13 @@ class Section1Form extends StatefulWidget {
 }
 
 class Section1FormState extends State<Section1Form> {
+  TextEditingController firstAdviserName = TextEditingController();
+  TextEditingController secondAdviserName = TextEditingController();
   TextEditingController dateTimeController = TextEditingController();
+  TextEditingController clientAttendees = TextEditingController();
+  TextEditingController clientContactNo = TextEditingController();
+  TextEditingController location = TextEditingController();
+
 
   TimeOfDay timeOfDay = TimeOfDay.now();
 
@@ -651,11 +659,15 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
+                    controller: firstAdviserName,
                     decoration:
                         InputDecoration(labelText: 'Enter adviser name'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
+                      } else {
+                        BlocProvider.of<AdviserInformationBloc>(context).add(
+                            EnterFiledAdviserNameEvent(adviserName: firstAdviserName.text.trim()));
                       }
                       return null;
                     },
@@ -684,11 +696,15 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
+                    controller: secondAdviserName,
                     decoration:
                         InputDecoration(labelText: 'Enter adviser name'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
+                      } else {
+                        BlocProvider.of<AdviserInformationBloc>(context).add(
+                            EnterSecondFiledAdviserNameEvent(secondAdviserName: secondAdviserName.text.trim()));
                       }
                       return null;
                     },
@@ -728,6 +744,9 @@ class Section1FormState extends State<Section1Form> {
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please select date';
+                      } else {
+                        BlocProvider.of<AdviserInformationBloc>(context).add(
+                            EnterMeetingDataEvent(meetingData: dateTimeController.text.trim()));
                       }
                       return null;
                     },
@@ -756,11 +775,15 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
+                    controller: clientAttendees,
                     decoration:
                         InputDecoration(labelText: 'Enter Client Attendees'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
+                      } else {
+                        BlocProvider.of<AdviserInformationBloc>(context).add(
+                            ClientAttendeesEvent(clientAttendees: clientAttendees.text.trim()));
                       }
                       return null;
                     },
@@ -789,11 +812,15 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
+                    controller: clientContactNo,
                     decoration:
                         InputDecoration(labelText: 'Enter Client Contact No'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
+                      } else {
+                        BlocProvider.of<AdviserInformationBloc>(context).add(
+                            ClientContactEvent(clientContact: clientContactNo.text.trim()));
                       }
                       return null;
                     },
@@ -822,10 +849,14 @@ class Section1FormState extends State<Section1Form> {
                 child: SizedBox(
                   width: 300,
                   child: TextFormField(
+                    controller: location,
                     decoration: InputDecoration(labelText: 'Enter Location'),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Please enter some text';
+                      } else {
+                        BlocProvider.of<AdviserInformationBloc>(context).add(
+                            LocationEvent(location: location.text.trim()));
                       }
                       return null;
                     },

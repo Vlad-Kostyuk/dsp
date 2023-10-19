@@ -72,4 +72,26 @@ class NetWorthFamilyWealth {
       'netWorth_FamilyWealth_others': others,
     };
   }
+
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'netWorth_FamilyWealth_bankAccounts',
+      'netWorth_FamilyWealth_realProperties',
+      'netWorth_FamilyWealth_universalLifeInsurance',
+      'netWorth_FamilyWealth_otherMatters',
+      'netWorth_FamilyWealth_investmentAccounts',
+      'netWorth_FamilyWealth_loan',
+      'netWorth_FamilyWealth_interestToUnderstand',
+      'netWorth_FamilyWealth_onshore',
+      'netWorth_FamilyWealth_offshore',
+      'netWorth_FamilyWealth_malaysia',
+      'netWorth_FamilyWealth_singapore',
+      'netWorth_FamilyWealth_australia',
+      'netWorth_FamilyWealth_indonesia',
+      'netWorth_FamilyWealth_uk',
+      'netWorth_FamilyWealth_others',
+    ];
+  }
+
 }
