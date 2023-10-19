@@ -36,4 +36,13 @@ class NextActions {
       convertToProspect: map['nextActions_convertToProspect'] as String,
     );
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'nextActions_Closed',
+      'nextActions_KIV',
+      'nextActions_convertToProspect',
+    ];
+  }
+
 }

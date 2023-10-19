@@ -3,6 +3,7 @@ import 'package:dsp/data/data_service/db_data_service.dart';
 import 'package:dsp/data/model/ConnectionStatus.dart';
 import 'package:dsp/data/model/CrmInterview.dart';
 import 'package:dsp/domain/repositories/api_repositories.dart';
+import 'package:dsp/global.dart';
 import 'package:sqflite/sqflite.dart';
 
 
@@ -41,21 +42,25 @@ class DBRepository {
 
   Future<void> synchronizationDBDataWithServer({required Database database}) async {
     try {
+      bool isConnected = await _connectionStatus.isInternetConnected();
+      if (isConnected) {
+        print('-----------------synchronizationDBDataWithServer-----------------');
 
-      print('-----------------synchronizationDBDataWithServer-----------------');
+        List<CrmInterview> listCrmInterviews = await getAllDataFromTableInterviewFormDB(database: database);
+        if(listCrmInterviews.isNotEmpty) {
+          for (CrmInterview interview in listCrmInterviews) {
+            int id = interview.id!;
 
-      List<CrmInterview> listCrmInterviews = await getAllDataFromTableInterviewFormDB(database: database);
-      if(listCrmInterviews.isNotEmpty) {
-        for (CrmInterview interview in listCrmInterviews) {
-          int id = interview.id!;
+            print(id.toString());
 
-          print(id.toString());
-
-          int newServerId = await _apiRepository.getEventsByUserId(interview: interview);
-          await updateFiledTableInterviewFormDB(id: id, newServerId: newServerId, database: database);
+            int newServerId = await _apiRepository.getEventsByUserId(interview: interview);
+            await updateFiledTableInterviewFormDB(id: id, newServerId: newServerId, database: database);
+          }
         }
+        print('seccess synchronizationDBDataWithServer');
+      } else {
+        throw UnimplementedError('No internet connection');
       }
-      print('seccess synchronizationDBDataWithServer');
     } catch (e, stacktrace) {
       log(e.toString());
       log('Stacktrace: $stacktrace');
@@ -76,22 +81,7 @@ class DBRepository {
 
   Future<void> setDataFromTableInterviewFormDB({required CrmInterview interview, required Database database}) async {
     try {
-      bool isConnected = await _connectionStatus.isInternetConnected();
-      if (isConnected) {
-        await _dbDataService.insertCrmInterview(interview: interview, database: database);
-        List<CrmInterview> list = await _dbDataService.getAllCrmInterviews(database: database);
-        interview = list.last;
-        int id = await _apiRepository.getEventsByUserId(interview: interview);
-        CrmInterview newInterviewWithServerID = interview;
-        newInterviewWithServerID.serverId = id;
-        await _dbDataService.insertCrmInterview(interview: newInterviewWithServerID, database: database);
-      } else {
-
-        print('-----------------');
-        print(interview.id.toString());
-
-        await _dbDataService.insertCrmInterview(interview: interview, database: database);
-      }
+      await _dbDataService.insertCrmInterview(interview: interview, database: database);
     } catch (e, stacktrace) {
       log(e.toString());
       log('Stacktrace: $stacktrace');
@@ -108,4 +98,62 @@ class DBRepository {
       throw UnimplementedError(e.toString());
     }
   }
+
+  Future<void> sendInterview({required Database database,
+    required int id, required String fieldName, dynamic fieldValue}) async {
+    try {
+       await _dbDataService.updateTableWithDynamicField(database: database, id: id,
+          fieldName: fieldName, fieldValue: fieldValue);
+
+      bool isConnected = await _connectionStatus.isInternetConnected();
+      if (isConnected) {
+        List<CrmInterview> list = await _dbDataService.getAllCrmInterviews(database: database);
+        if(list.isEmpty) {
+          throw UnimplementedError('list is empty');
+        } else {
+          CrmInterview interview = list.last;
+          int newServerID = await _apiRepository.getEventsByUserId(interview: interview);
+          await updateFiledTableInterviewFormDB(id: interview.id!, newServerId: newServerID, database: database);
+        }
+      } else {
+        throw UnimplementedError('No internet connection');
+      }
+    } catch (e, stacktrace) {
+      log(e.toString());
+      log('Stacktrace: $stacktrace');
+      throw UnimplementedError(e.toString());
+    }
+  }
+
+
+
+  Future<void> updateTableWithDynamicField({required Database database,
+  required int id, required String fieldName, dynamic fieldValue}) async {
+    try {
+      await _dbDataService.updateTableWithDynamicField(database: database, id: id,
+          fieldName: fieldName, fieldValue: fieldValue);
+    } catch (e, stacktrace) {
+      log(e.toString());
+      log('Stacktrace: $stacktrace');
+      throw UnimplementedError(e.toString());
+    }
+  }
+
+
+  Future<void> getLastElementIDFromTable({required Database database}) async {
+    try {
+      int? id = await _dbDataService.getLastElementIDFromTable(database: database);
+      if(id != null) {
+        globalID = id;
+      } else {
+        throw UnimplementedError('id is null');
+      }
+    } catch (e, stacktrace) {
+      log(e.toString());
+      log('Stacktrace: $stacktrace');
+      throw UnimplementedError(e.toString());
+    }
+  }
+
+
 }

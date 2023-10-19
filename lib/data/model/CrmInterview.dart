@@ -9,6 +9,7 @@ import 'package:dsp/data/model/Personal.dart';
 import 'package:dsp/data/model/ProposedSolution.dart';
 import 'package:dsp/data/model/Siblings.dart';
 import 'package:dsp/data/model/Spouse.dart';
+import 'package:dsp/data/model/Status.dart';
 
 class CrmInterview {
   int? id;
@@ -100,7 +101,7 @@ class CrmInterview {
       ...proposedSolution.toMap(),
       ...nextActions.toMap(),
       'status': status,
-      'server_id': serverId,
+      'server_id': serverId.toString(),
     };
   }
 
@@ -128,4 +129,18 @@ class CrmInterview {
       'server_id': serverId,
     };
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'first_adviser_name',
+      'second_adviser_name',
+      'meeting_date_time',
+      'client_attendees',
+      'client_contactNo',
+      'location',
+      'status',
+      'server_id',
+    ];
+  }
+
 }

@@ -53,4 +53,20 @@ class Personal {
       'personal_marital_status': maritalStatus,
     };
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'personal_name',
+      'personal_age',
+      'personal_gender',
+      'personal_citizenship',
+      'personal_DOB',
+      'personal_religion',
+      'personal_permanent_residency',
+      'personal_occupation',
+      'personal_tax_residency',
+      'personal_marital_status',
+    ];
+  }
+
 }

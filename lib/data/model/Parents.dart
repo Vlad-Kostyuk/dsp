@@ -21,5 +21,13 @@ class Parents {
       'parents_mother_age': motherAge,
     };
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'parents_father_age',
+      'parents_mother_age',
+    ];
+  }
+
 }
 

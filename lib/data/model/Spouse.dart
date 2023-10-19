@@ -48,4 +48,19 @@ class Spouse {
       'spouse_tax_residency': taxResidency,
     };
   }
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'spouse_name',
+      'spouse_age',
+      'spouse_gender',
+      'spouse_citizenship',
+      'spouse_DOB',
+      'spouse_religion',
+      'spouse_permanent_residency',
+      'spouse_occupation',
+      'spouse_tax_residency',
+    ];
+  }
+
 }

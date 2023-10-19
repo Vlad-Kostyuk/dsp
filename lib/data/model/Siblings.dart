@@ -92,4 +92,31 @@ class Siblings {
       'siblings_children_totalChildren': childrenTotalChildren,
     };
   }
+
+
+  List<String> getFieldNamesInDB() {
+    return [
+      'siblings_totalSibling_brother',
+      'siblings_totalSibling_sister',
+      'siblings_name',
+      'siblings_gender',
+      'siblings_age',
+      'siblings_living_status',
+      'siblings_religion',
+      'siblings_sibling_relationship',
+      'siblings_shareholders_FB',
+      'siblings_shares',
+      'siblings_siblings_stillWorking',
+      'siblings_totalYears_WorkingIn_FB',
+      'siblings_retirementGratuity_pensionPlan',
+      'siblings_totalChildren',
+      'siblings_childrenGender',
+      'siblings_childrenAge',
+      'siblings_children_workingIn_FB',
+      'siblings_children_sharesIn_FB',
+      'siblings_muslim_convert',
+      'siblings_children_totalChildren',
+    ];
+  }
+
 }

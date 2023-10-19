@@ -89,13 +89,25 @@ class DBDataService implements DBService {
     }
   }
 
-  @override
+  Future<void> updateTableWithDynamicField({required Database database,
+    required int id, required String fieldName, dynamic fieldValue}) async {
+    const tableName = 'crm_interview';
+    final dataToUpdate = {fieldName: fieldValue};
+    await database.update(
+      tableName,
+      dataToUpdate,
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+
   Future<List<CrmInterview>> getAllCrmInterviews({required Database database}) async {
     final db = database;
     final List<Map<String, dynamic>> maps = await db.query(
       'crm_interview',
-      where: 'status = ? AND server_id IS NULL',
-      whereArgs: ['DONE'],
+      where: 'status = ? AND server_id = ?',
+      whereArgs: ['DONE', 0], // Change 0 to the desired value
     );
 
     List<CrmInterview> interviews = List.generate(maps.length, (i) {
@@ -103,6 +115,21 @@ class DBDataService implements DBService {
     });
 
     return interviews;
+  }
+
+
+
+
+  Future<int?> getLastElementIDFromTable({required Database database}) async {
+    final List<Map<String, dynamic>> result = await database.rawQuery(
+      'SELECT * FROM crm_interview ORDER BY id DESC LIMIT 1',
+    );
+    if (result.isNotEmpty) {
+      int id = result.first['id'];
+      return id;
+    } else {
+      return null;
+    }
   }
 
 }

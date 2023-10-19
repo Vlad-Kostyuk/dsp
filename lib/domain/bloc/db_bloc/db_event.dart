@@ -27,3 +27,12 @@ class AddNewInterview extends DbEvent {
   @override
   List<Object> get props => [interview];
 }
+
+class FinishAddNewInterview extends DbEvent {
+  final CrmInterview interview;
+
+  const FinishAddNewInterview({required this.interview});
+
+  @override
+  List<Object> get props => [interview];
+}
